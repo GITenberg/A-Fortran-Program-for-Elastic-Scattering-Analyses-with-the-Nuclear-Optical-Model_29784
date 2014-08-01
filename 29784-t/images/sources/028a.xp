@@ -1,0 +1,166 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P sw(789,1952), ne(3000, 730);
+double XSZ(5.5), YSZ(1.2); // Cartesian dimensions
+
+P pt(double x, double y)
+{
+  return P(XSZ*(x-sw.x1())/(ne.x1() - sw.x1()),
+	   YSZ*(y-sw.x2())/(ne.x2() - sw.x2()));
+}
+
+P Bl(380, 2200), Tr(3180, 100);
+P pic(double x, double y)
+{
+  return P(8*(x-Bl.x1())/(Tr.x1() - Bl.x1()),
+	   6*(y-Bl.x2())/(Tr.x2() - Bl.x2()));
+}
+
+void Circ(const P& loc, const std::string& msg)
+{
+  dot_size(16);
+  circ(loc);
+  label(loc, msg);
+}
+
+void key(const P& loc, const std::string& msg)
+{
+  P stem(P(0.5, 0.25));
+  double scale(5 - 2*loc.x1()); // to put labels at 4.5 = (5+stem.x1())/2
+
+  P elbow(loc + scale*stem), tail(elbow+P(0.25));
+  line(elbow, tail);
+  base(White(), 2.5);
+  line(elbow, tail);
+  base(Neutral(), 0);
+  arrow(elbow, elbow-scale*0.99*stem);
+
+  Circ(tail, msg);
+}
+
+int main()
+{
+  picture(P(0,0), P(8,6), "8 x 6in");
+
+  begin();
+  degrees();
+
+  screen scr(P(0,0), P(XSZ, YSZ));
+  activate(scr);
+
+  grid(P(0,0), P(6, 1.2), 6, 3);
+  bold();
+  grid();
+
+  axis Ax(P(0,0), P(5,0), 5, P(0,-4), b);
+  Ax.subdivide(2).tick_ratio(1).align(t).draw();
+
+  axis Ay(P(0,0), P(0,1), 5, P(-4,0), l);
+  Ay.align(r).draw();
+
+  axis Ax2(P(0,YSZ), P(5,YSZ), 5);
+  Ax2.subdivide(2).tick_ratio(1).align(b).draw_ticks();
+
+  axis Ay2(P(XSZ,0), P(XSZ,YSZ), 6);
+  Ay2.align(l).draw_ticks();
+
+  std::vector<P> data1, data2, data3;
+  data1.push_back(pt(791, 931));
+  data1.push_back(pt(875, 931));
+  data1.push_back(pt(975, 931));
+  data1.push_back(pt(1075, 931));
+  data1.push_back(pt(1175, 931));
+  data1.push_back(pt(1275, 932));
+  data1.push_back(pt(1375, 935));
+  data1.push_back(pt(1475, 936));
+  data1.push_back(pt(1575, 941));
+  data1.push_back(pt(1675, 962));
+  data1.push_back(pt(1775, 1013));
+  data1.push_back(pt(1875, 1105));
+  data1.push_back(pt(1975, 1245));
+  data1.push_back(pt(2075, 1427)); // first common point
+
+  data1.push_back(pt(2175, 1603));
+  data1.push_back(pt(2275, 1743));
+  data1.push_back(pt(2375, 1837));
+  data1.push_back(pt(2475, 1896));
+  data1.push_back(pt(2575, 1927));
+  data1.push_back(pt(2675, 1940));
+  data1.push_back(pt(2775, 1947));
+  data1.push_back(pt(2875, 1948));
+  data1.push_back(pt(2990, 1948));
+
+  data2.push_back(pt(1275, 932));
+  data2.push_back(pt(1375, 935));
+  data2.push_back(pt(1475, 939));
+  data2.push_back(pt(1575, 956));
+  data2.push_back(pt(1675, 982));
+  data2.push_back(pt(1775, 1031));
+  data2.push_back(pt(1875, 1120));
+  data2.push_back(pt(1975, 1250));
+  data2.push_back(pt(2075, 1428));
+  data2.push_back(pt(2175, 1603));
+
+  data3.push_back(pt(791, 931));
+  data3.push_back(pt(875, 932));
+  data3.push_back(pt(975, 933));
+  data3.push_back(pt(1075, 937));
+  data3.push_back(pt(1175, 944));
+  data3.push_back(pt(1275, 954));
+  data3.push_back(pt(1375, 967));
+  data3.push_back(pt(1475, 984));
+  data3.push_back(pt(1575, 1006));
+  data3.push_back(pt(1675, 1037));
+  data3.push_back(pt(1775, 1084));
+  data3.push_back(pt(1875, 1159));
+  data3.push_back(pt(1975, 1268));
+  data3.push_back(pt(2075, 1428));
+
+  spline(data1, 12);
+  spline(data2, 12);
+  spline(data3, 12);
+
+  plain();
+  key(pt(1678,  962), "$1$");
+  key(pt(1714,  997), "$2$");
+  key(pt(1729, 1060), "$3$");
+  crop();
+
+  label(P(2.5), P(0,-4), "$\\rho$", b);
+  label(P(2.75, 0), P(0,-18), // added period
+	"\\textsc{Fig.~4} -- Central form factors, knee variation.", b);
+
+  label_angle(90);
+  label(P(0, 0.6), P(-24,0), "\\Code{FFCR} and/or \\Code{FFCI}", l);
+  deactivate(scr);
+
+  inset(scr, P(1.125,0.5), P(8, 4.25));
+
+  // now draw rest of page
+  label_angle(0);
+  label(pic(1292, 244), P(0,0),
+	"\\Code{R0 = 1.20},\\quad \\Code{A = 0.52},\\quad \\Code{FN2A = 1},\\quad \\Code{PMA = 1},\\quad $\\rho_{m_A} = \\bar{\\rho}_N = 3.24$", r);
+
+  label(pic(1916, 204), P(0,0), "\\framebox{p - Cu\\quad $9.75$~\\MeV}", t);
+
+  P lb(pic(1584, 320)), dY(pic(1584, 384) - lb);
+  Circ(lb, "$1$");// labels uncircled in original
+  label(lb, P(12,0), "\\Code{FN1A = 0.01}", r);
+  label(lb, P(100,0), "\\Code{HA = 0}", r);
+
+  lb += dY;
+  Circ(lb, "$2$");
+  label(lb, P(12,0), "\\Code{FN1A = 1}", r);
+  label(lb, P(100,0), "\\Code{HA = 0}", r);
+  label(lb, P(172,0), "(Standard form factor)", r);
+
+  lb += dY;
+  Circ(lb, "$3$");
+  label(lb, P(12,0), "\\Code{FN1A = 3}", r);
+  label(lb, P(100,0), "\\Code{HA = 0.046}", r);
+
+  tikz_format();
+  end();
+}

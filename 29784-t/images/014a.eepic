@@ -1,0 +1,82 @@
+%% Generated from 014a.xp on Sat May 16 11:52:54 EDT 2009 by
+%% ePiX-1.2.6
+%% 
+%%   Cartesian bounding box: [0,6] x [-1,1]
+%%   Actual size: 6 x 2in
+%%   Figure offset: left by 0in, down by 0in
+%% 
+%% usepackages tikz
+%% 
+\xdefinecolor{rgb_000000}{rgb}{0,0,0}%
+\xdefinecolor{rgb_ffffff}{rgb}{1,1,1}%
+\begin{tikzpicture}
+\pgfsetlinewidth{0.4pt}
+\useasboundingbox (0in,0in) rectangle (6in,2in);
+\draw (1in,1in)--(0.133975in,0.5in);
+\draw (1in,1in)--(6in,1in);
+\draw (3.5in,1in)--(5.84923in,1.85505in);
+\pgfsetfillcolor{rgb_000000}
+\draw [fill](5.76878in,1.82577in)--(5.74906in,1.7965in)--
+  (5.84923in,1.85505in)--(5.73486in,1.83551in)--(5.76878in,1.82577in)--cycle;
+\draw (3.5in,1in)--(5.84923in,0.14495in);
+\draw [fill](5.76878in,0.174232in)--(5.73486in,0.164489in)--
+  (5.84923in,0.14495in)--(5.74906in,0.203497in)--(5.76878in,0.174232in)--cycle;
+\draw (1.51962in,1.3in)--(1.53389in,1.27379in)--
+  (1.54684in,1.24691in)--(1.55844in,1.21941in)--
+  (1.56866in,1.19138in)--(1.57747in,1.16286in)--
+  (1.58486in,1.13395in)--(1.59079in,1.1047in)--(1.59527in,1.0752in)--
+  (1.59827in,1.04551in)--(1.59979in,1.01571in);
+\draw [fill](1.59761in,1.05846in)--(1.58652in,1.07218in)--
+  (1.59979in,1.01571in)--(1.60725in,1.07324in)--(1.59761in,1.05846in)--cycle;
+\draw (4.1in,1in)--(4.09936in,1.02767in)--(4.09745in,1.05527in)--
+  (4.09426in,1.08276in)--(4.08982in,1.11008in)--
+  (4.08411in,1.13716in)--(4.07717in,1.16394in)--(4.06899in,1.19038in);
+\draw [fill](4.08164in,1.14948in)--(4.09577in,1.13892in)--
+  (4.06899in,1.19038in)--(4.07594in,1.13279in)--(4.08164in,1.14948in)--cycle;
+\draw (4.1in,1in)--(4.09936in,0.972334in)--(4.09745in,0.944727in)--(4.09426in,0.917237in)--(4.08982in,0.889923in)--
+  (4.08411in,0.862844in)--(4.07717in,0.836056in)--(4.06899in,0.809617in);
+\draw [fill](4.08164in,0.850516in)--(4.07594in,0.867214in)--
+  (4.06899in,0.809617in)--(4.09577in,0.861083in)--(4.08164in,0.850516in)--cycle;
+\draw (0.480385in,0.7in)--(0.523686in,0.725in);
+\draw [fill](0.44954in,0.682192in)--(0.435202in,0.649948in)--
+  (0.523686in,0.725in)--(0.414447in,0.685897in)--(0.44954in,0.682192in)--cycle;
+\draw (2.5in,1in)--(2.55in,1in);
+\draw [fill](2.46438in,1in)--(2.43584in,0.979244in)--(2.55in,1in)--
+  (2.43584in,1.02076in)--(2.46438in,1in)--cycle;
+\draw (1in,1in)--(1.03093in,1.01786in);
+\draw (1.09279in,1.05357in)--(1.12372in,1.07143in);
+\draw (1.12372in,1.07143in)--(1.15465in,1.08929in);
+\draw (1.21651in,1.125in)--(1.24744in,1.14286in);
+\draw (1.24744in,1.14286in)--(1.27837in,1.16071in);
+\draw (1.34022in,1.19643in)--(1.37115in,1.21429in);
+\draw (1.37115in,1.21429in)--(1.40208in,1.23214in);
+\draw (1.46394in,1.26786in)--(1.49487in,1.28571in);
+\draw (1.49487in,1.28571in)--(1.5258in,1.30357in);
+\draw (1.58766in,1.33929in)--(1.61859in,1.35714in);
+\draw (1.61859in,1.35714in)--(1.64952in,1.375in);
+\draw (1.71138in,1.41071in)--(1.74231in,1.42857in);
+\draw (1.74231in,1.42857in)--(1.77324in,1.44643in);
+\draw (1.8351in,1.48214in)--(1.86603in,1.5in);
+\pgftext[at={\pgfpoint{0.508059in}{0.672326in}}] {\makebox(0,0)[tl]{\hbox{\color{rgb_000000}$\vec{k}_0$}}}
+\pgftext[at={\pgfpoint{2.5in}{0.944652in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$\vec{k}_1$}}}
+\pgftext[at={\pgfpoint{5.87691in}{1.85505in}}] {\makebox(0,0)[l]{\hbox{\color{rgb_000000}$\vec{k}_2^\ell$}}}
+\pgftext[at={\pgfpoint{5.87691in}{0.14495in}}] {\makebox(0,0)[l]{\hbox{\color{rgb_000000}$\vec{k}_2^r$}}}
+\pgftext[at={\pgfpoint{1.6349in}{1.12762in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}$\theta_1$}}}
+\pgftext[at={\pgfpoint{4.14623in}{1.07651in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}$\theta_2$}}}
+\pgftext[at={\pgfpoint{4.14623in}{0.923485in}}] {\makebox(0,0)[tl]{\hbox{\color{rgb_000000}$\theta_2$}}}
+\filldraw[color=rgb_ffffff] (4.90954in,1.51303in) circle(0.0518888in);
+\draw[color=rgb_000000] (4.90954in,1.51303in) circle(0.0518888in);
+\pgftext[at={\pgfpoint{4.90954in}{1.51303in}}] {\makebox(0,0){\hbox{\color{rgb_000000}$\times$}}}
+\pgftext[at={\pgfpoint{4.93721in}{1.48536in}}] {\makebox(0,0)[tl]{\hbox{\color{rgb_000000}$\vec{n}_2^\ell$}}}
+\filldraw[color=rgb_ffffff] (4.90954in,0.48697in) circle(0.0518888in);
+\draw[color=rgb_000000] (4.90954in,0.48697in) circle(0.0518888in);
+\filldraw[color=rgb_000000] (4.90954in,0.48697in) circle(0.0103778in);
+\pgftext[at={\pgfpoint{4.93721in}{0.514644in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}$\vec{n}_2^r$}}}
+\filldraw[color=rgb_ffffff] (2in,1in) circle(0.0518888in);
+\draw[color=rgb_000000] (2in,1in) circle(0.0518888in);
+\filldraw[color=rgb_000000] (2in,1in) circle(0.0103778in);
+\pgftext[at={\pgfpoint{2.02767in}{0.916978in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$\vec{n}_1$}}}
+\pgftext[at={\pgfpoint{4.41202in}{1.36969in}}] {\makebox(0,0)[br]{\hbox{\color{rgb_000000}$\ell$~Beam}}}
+\pgftext[at={\pgfpoint{4.41202in}{0.630306in}}] {\makebox(0,0)[tr]{\hbox{\color{rgb_000000}$r$~Beam}}}
+\pgftext[at={\pgfpoint{3in}{-0.027674in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}\textsc{Fig.~1}}}}
+\end{tikzpicture}

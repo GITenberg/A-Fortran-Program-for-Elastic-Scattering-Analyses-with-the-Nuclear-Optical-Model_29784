@@ -1,0 +1,188 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P sw(680, 1382), ne(2988, 624);
+double XSZ(25), YSZ(0.03); // Cartesian dimensions
+
+P pt(double x, double y)
+{
+  return P(XSZ*(x-sw.x1())/(ne.x1() - sw.x1()),
+	   YSZ*(y-sw.x2())/(ne.x2() - sw.x2()));
+}
+
+P Bl(380, 2180), Tr(3180, 80);
+P pic(double x, double y)
+{
+  return P(8*(x-Bl.x1())/(Tr.x1() - Bl.x1()),
+	   6*(y-Bl.x2())/(Tr.x2() - Bl.x2()));
+}
+
+void Circ(const P& loc, const std::string& msg)
+{
+  dot_size(16);
+  circ(loc);
+  label(loc, msg);
+}
+
+
+int main()
+{
+  picture(P(0,0), P(8,6), "8 x 6in");
+
+  begin();
+  degrees();
+
+  screen scr(P(0,-YSZ), P(XSZ, YSZ));
+  activate(scr);
+
+  grid(P(0,-YSZ), P(30, YSZ), 6, 6);
+  bold();
+  grid();
+
+  axis Ax(P(0,-YSZ), P(30,-YSZ), 6, P(0,-4), b);
+  Ax.subdivide(5).unmark(30).tick_ratio(1).align(t).draw();
+
+  axis Ay(P(0,-YSZ), P(0,YSZ), 6, P(-4,0), l);
+  Ay.subdivide(2).tick_ratio(1).align(r).draw();
+
+  axis Ax2(P(0,YSZ), P(30,YSZ), 6);
+  Ax2.subdivide(5).tick_ratio(1).align(b).draw_ticks();
+
+  axis Ay2(P(XSZ,-YSZ), P(XSZ,YSZ), 6);
+  Ay2.subdivide(2).tick_ratio(1).align(l).draw_ticks();
+
+  std::vector<P> data1, data2, data3, data4;
+  spline(pt(680, 1356), pt(690, 1369), pt(700, 1377), pt(710, 1379));
+
+  //  data1.push_back(pt(680, 1356));
+  //  data1.push_back(pt(700, 1375));
+  data1.push_back(pt(710, 1379));
+  data1.push_back(pt(725, 1379));
+  data1.push_back(pt(775, 1379));
+  data1.push_back(pt(875, 1380));
+  data1.push_back(pt(975, 1379));
+  data1.push_back(pt(1075, 1376));
+  data1.push_back(pt(1175, 1375));
+  data1.push_back(pt(1275, 1372));
+  data1.push_back(pt(1375, 1366));
+  data1.push_back(pt(1475, 1355));
+  data1.push_back(pt(1575, 1340));
+  data1.push_back(pt(1675, 1316));
+  data1.push_back(pt(1733, 1296)); // hits data4
+  data1.push_back(pt(1775, 1282));
+  data1.push_back(pt(1875, 1238));
+  data1.push_back(pt(1975, 1185));
+  data1.push_back(pt(2075, 1135));
+  data1.push_back(pt(2175, 1122));
+  data1.push_back(pt(2275, 1154)); // first common point
+
+  data1.push_back(pt(2375, 1215));
+  data1.push_back(pt(2475, 1273));
+  data1.push_back(pt(2575, 1316));
+  data1.push_back(pt(2675, 1344));
+  data1.push_back(pt(2775, 1362));
+  data1.push_back(pt(2875, 1371));
+  data1.push_back(pt(2983, 1376));
+
+  //  data2.push_back(pt(680, 654));
+  //  data2.push_back(pt(690, 681));
+  //  data2.push_back(pt(725, 718));
+  spline(pt(680, 654), pt(690, 681), pt(725, 718), pt(750, 730));
+  data2.push_back(pt(750, 730));
+  data2.push_back(pt(775, 743));
+  data2.push_back(pt(875, 790));
+  data2.push_back(pt(975, 830));
+  data2.push_back(pt(1075, 870));
+  data2.push_back(pt(1175, 914));
+  data2.push_back(pt(1275, 958));
+  data2.push_back(pt(1375, 995));
+  data2.push_back(pt(1475, 1032));
+  data2.push_back(pt(1575, 1064));
+  data2.push_back(pt(1675, 1083));
+  data2.push_back(pt(1775, 1096));
+  data2.push_back(pt(1875, 1099));
+  data2.push_back(pt(1975, 1096));
+  data2.push_back(pt(2075, 1100));
+  data2.push_back(pt(2175, 1115));
+  data2.push_back(pt(2275, 1153)); // first common point
+  data2.push_back(pt(2375, 1215));
+
+  data3.push_back(pt(680, 2054));
+  data3.push_back(pt(775, 2010));
+  data3.push_back(pt(875, 1965));
+  data3.push_back(pt(975, 1921));
+  data3.push_back(pt(1075, 1876));
+  data3.push_back(pt(1175, 1828));
+  data3.push_back(pt(1275, 1781));
+  data3.push_back(pt(1375, 1732));
+  data3.push_back(pt(1475, 1678));
+  data3.push_back(pt(1575, 1618));
+  data3.push_back(pt(1675, 1550));
+  data3.push_back(pt(1775, 1470));
+  data3.push_back(pt(1875, 1371));
+  data3.push_back(pt(1975, 1262));
+  data3.push_back(pt(2075, 1171));
+  data3.push_back(pt(2175, 1126));
+  data3.push_back(pt(2225, 1133));
+  data3.push_back(pt(2275, 1154)); // first common point
+
+  data4.push_back(pt(1451, 624));
+  data4.push_back(pt(1475, 679));
+  data4.push_back(pt(1575, 929));
+  data4.push_back(pt(1675, 1164));
+  data4.push_back(pt(1733, 1296));
+
+  spline(data1, 4);
+  spline(data2, 4);
+  spline(data3, 4);
+  spline(data4, 4);
+
+  plain();
+  Circ(pt(1428, 1320), "$1$");
+  Circ(pt(1356,  944), "$2$");
+  Circ(pt(1376, 1688), "$3$");
+  line(pt(1704, 1175), pt(1741, 1261));
+  dart(pt(1741, 1261), pt(1806, 1236));
+  Circ(pt(1716, 1168), "$4$");
+  crop();
+
+  label(P(12), P(0,-4), "$\\rho$", b);
+  label(P(12.5, -YSZ), P(0,-18), // Added period
+	"{\\small\\textsc{Fig.~6} -- Spin-orbit form factors (derivative form). Effect of dips and rises in central form factor.}", b);
+
+  label_angle(90);
+  label(P(0, 0), P(-36,0), "\\Code{FFSR} and/or \\Code{FFSI}", l);
+  deactivate(scr);
+
+  inset(scr, P(1.125,0.5), P(8, 4.25));
+
+  // now draw rest of page
+  label_angle(0);
+  label(pic(1088, 268), P(0,0),
+	"\\Code{R0 = 1.25},\\quad \\Code{A = 0.65},\\quad \\Code{FN1A = 1},\\quad \\Code{FN2A = 1}", r);
+
+  label(pic(1624, 208), P(0,0), "\\framebox{p - Ag\\quad $135$~\\MeV}", t);
+
+  P lb(pic(1216, 340)), dY(pic(1216, 408) - lb);
+  Circ(lb, "$1$");
+  // Capitalized Standard
+  label(lb, P(12,0), "\\Code{HA = 0},\\quad\\Code{PMA = 1},\\qquad $\\rho_{m_A} = \\bar{\\rho}_N = 15.04$\\quad (Standard derivative form factor)", r);
+
+  lb += dY;
+  Circ(lb, "$2$");
+  label(lb, P(12,0), "\\Code{HA = 1},", r);
+  label(lb, P(72,0), "\\Ditto\\hspace*{1in}\\Ditto\\qquad\\Ditto\\qquad\\Ditto", r);
+
+  lb += dY;
+  Circ(lb, "$3$");
+  label(lb, P(12,0), "\\Code{HA = -1},", r);
+  label(lb, P(72,0), "\\Ditto\\hspace*{1in}\\Ditto\\qquad\\Ditto\\qquad\\Ditto", r);
+
+  lb += dY;
+  Circ(lb, "$4$");
+  label(lb, P(12,0), "\\Code{HA = 2},\\quad\\Code{PMA = 0.7},\\quad $\\rho_{m_A} = 0.7\\ \\bar{\\rho}_N = 10.53$", r);
+
+  tikz_format();
+  end();
+}

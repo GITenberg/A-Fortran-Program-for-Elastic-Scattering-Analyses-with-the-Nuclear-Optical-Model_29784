@@ -1,0 +1,84 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+void bigdot() { dot_size(10); }
+void lildot() { dot_size(2); }
+
+void Dn(const P& loc)
+{
+  bigdot();
+  circ(loc);
+
+  marker(loc, TIMES);
+}
+
+void Up(const P& loc)
+{
+  bigdot();
+  circ(loc);
+
+  lildot();
+  dot(loc);
+}
+
+void Dn(const P& loc, const P& off, const std::string& msg,
+	epix_label_posn A)
+{
+  Dn(loc);
+  label(loc, off, msg, A);
+}
+
+void Up(const P& loc, const P& off, const std::string& msg,
+	epix_label_posn A)
+{
+  Up(loc);
+  label(loc, off, msg, A);
+}
+
+double th1(30), th2(20), rad(0.6), rad2(2.5), EPS(1.5);
+P scat1(1,0), scat2(3.5,0);
+
+int main()
+{
+  picture(P(0,-1), P(6,1), "6 x 2in");
+
+  begin();
+  degrees();
+  arrow_inset(0.25);
+
+  line(scat1, scat1 - cis(th1));
+  line(scat1, P(xmax(),0));
+  arrow(scat2, scat2+polar(rad2,  th2));
+  arrow(scat2, scat2+polar(rad2, -th2));
+
+  arc_arrow(scat1, rad, th1, EPS, 0.5);
+  arc_arrow(scat2, rad, 0,  th2-EPS, 0.5);
+  arc_arrow(scat2, rad, 0, -th2+EPS, 0.5);
+  arrow(scat1 - polar(0.6, th1), scat1 - polar(0.55, th1));
+  arrow(scat1 + P(1.5), scat1 + P(1.55));
+
+  dashed();
+  line(scat1, scat1 + cis(th1));
+
+  label(scat1 - polar(0.6, th1), P(2,-2), "$\\vec{k}_0$", br);
+  label(scat1 + P(1.5), P(0,-4), "$\\vec{k}_1$", b);
+
+  label(scat2+polar(rad2,  th2), P(2,0), "$\\vec{k}_2^\\ell$", r);
+  label(scat2+polar(rad2, -th2), P(2,0), "$\\vec{k}_2^r$", r);
+
+  label(scat1+polar(rad,  0.5*th1), P(4,-2), "$\\theta_1$", tr);
+  label(scat2+polar(rad,  0.5*th2), P(4,-2), "$\\theta_2$", tr);
+  label(scat2+polar(rad, -0.5*th2), P(4, 2), "$\\theta_2$", br);
+
+  Dn(scat2+polar(0.6*rad2,  th2), P(2,-2), "$\\vec{n}_2^\\ell$", br);
+  Up(scat2+polar(0.6*rad2, -th2), P(2, 2), "$\\vec{n}_2^r$", tr);
+  Up(scat1+P(1,0), P(2,-6), "$\\vec{n}_1$", b);
+
+  label(scat2+polar(0.4*rad2,  th2), P(-2, 2), "$\\ell$~Beam", tl);
+  label(scat2+polar(0.4*rad2, -th2), P(-2,-2), "$r$~Beam", bl);
+
+  label(P(0.5*(xmin()+xmax()), ymin()), P(0,-2), "\\textsc{Fig.~1}", b);
+  tikz_format();
+  end();
+}
