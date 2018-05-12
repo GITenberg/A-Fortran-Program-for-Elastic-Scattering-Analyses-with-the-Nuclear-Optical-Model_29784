@@ -1,0 +1,42 @@
+_repo: A-Fortran-Program-for-Elastic-Scattering-Analyses-with-the-Nuclear-Optical-Model_29784
+_version: 0.1.0
+covers:
+- cover_type: generated
+  image_path: cover.png
+creator:
+  authors:
+  - agent_name: Saxon, David S.
+    alias: Saxon, D. S. (David S.)
+    birthdate: 1920
+    deathdate: 2005
+    gutenberg_agent_id: '34166'
+    url: http://www.gutenberg.org/2009/agents/34166
+  - agent_name: Cantor, David G.
+    gutenberg_agent_id: '34168'
+    url: http://www.gutenberg.org/2009/agents/34168
+  - agent_name: Nodvik, John S.
+    gutenberg_agent_id: '34167'
+    url: http://www.gutenberg.org/2009/agents/34167
+  - agent_name: Melkanoff, Michel A.
+    alias: Melkanoff, Michael A.
+    birthdate: 1923
+    gutenberg_agent_id: '34165'
+    url: http://www.gutenberg.org/2009/agents/34165
+description: ''
+gutenberg_bookshelf: Physics
+gutenberg_issued: '2009-08-24'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '29784'
+  lccn: '61063481'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Nuclear optical models'
+- !lcsh 'FORTRAN (Computer program language)'
+- !lcc 'QC'
+title: A Fortran Program for Elastic Scattering Analyses with the Nuclear Optical
+  Model
+url: http://www.gutenberg.org/ebooks/29784
