@@ -23,6 +23,8 @@ creator:
     gutenberg_agent_id: '34165'
     url: http://www.gutenberg.org/2009/agents/34165
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/29784#A-Fortran-Program-for-Elastic-Scattering-Analyses-with-the-Nuclear-Optical-Model
 gutenberg_bookshelf: Physics
 gutenberg_issued: '2009-08-24'
 gutenberg_type: Text
